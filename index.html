@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+	<!-- Link to CSS -->
+	<link rel="stylesheet" href="./styles/background.css">
+	<link rel="stylesheet" href="./styles/content.css">
+	<link rel="stylesheet" href="./styles/index.css"> 
+	<link rel="stylesheet" href="./styles/indexSeparate.css"> 
+	<title>Frontend Mentor | Job Listings</title>
+
+	<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+	<style>
+		.attribution { font-size: 11px; text-align: center; }
+		.attribution a { color: hsl(228, 45%, 44%); }
+	</style>
+	</head>
+	<body>
+	<div class="background">
+		<div class="background-top"></div>
+		<div class="background-bottom"></div>
+	</div>
+	<div class="content">
+
+
+		<div class="content-listing">
+
+		</div>
+		
+	</div>
+
+	</body>
+
+	<footer>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+		<script type="text/javascript">
+			var data=[
+				{
+					"id": 1,
+					"company": "Photosnap",
+					"logo": "./images/photosnap.svg",
+					"new": true,
+					"featured": true,
+					"position": "Senior Frontend Developer",
+					"role": "Frontend",
+					"level": "Senior",
+					"postedAt": "1d ago",
+					"contract": "Full Time",
+					"location": "USA Only",
+					"languages": ["HTML", "CSS", "JavaScript"],
+					"tools": []
+				},
+				{
+					"id": 2,
+					"company": "Manage",
+					"logo": "./images/manage.svg",
+					"new": true,
+					"featured": true,
+					"position": "Fullstack Developer",
+					"role": "Fullstack",
+					"level": "Midweight",
+					"postedAt": "1d ago",
+					"contract": "Part Time",
+					"location": "Remote",
+					"languages": ["Python"],
+					"tools": ["React"]
+				},
+				{
+					"id": 3,
+					"company": "Account",
+					"logo": "./images/account.svg",
+					"new": true,
+					"featured": false,
+					"position": "Junior Frontend Developer",
+					"role": "Frontend",
+					"level": "Junior",
+					"postedAt": "2d ago",
+					"contract": "Part Time",
+					"location": "USA Only",
+					"languages": ["JavaScript"],
+					"tools": ["React", "Sass"]
+				},
+				{
+					"id": 4,
+					"company": "MyHome",
+					"logo": "./images/myhome.svg",
+					"new": false,
+					"featured": false,
+					"position": "Junior Frontend Developer",
+					"role": "Frontend",
+					"level": "Junior",
+					"postedAt": "5d ago",
+					"contract": "Contract",
+					"location": "USA Only",
+					"languages": ["CSS", "JavaScript"],
+					"tools": []
+				},
+				{
+					"id": 5,
+					"company": "Loop Studios",
+					"logo": "./images/loop-studios.svg",
+					"new": false,
+					"featured": false,
+					"position": "Software Engineer",
+					"role": "FullStack",
+					"level": "Midweight",
+					"postedAt": "1w ago",
+					"contract": "Full Time",
+					"location": "Worldwide",
+					"languages": ["JavaScript"],
+					"tools": ["Ruby", "Sass"]
+				},
+				{
+					"id": 6,
+					"company": "FaceIt",
+					"logo": "./images/faceit.svg",
+					"new": false,
+					"featured": false,
+					"position": "Junior Backend Developer",
+					"role": "Backend",
+					"level": "Junior",
+					"postedAt": "2w ago",
+					"contract": "Full Time",
+					"location": "UK Only",
+					"languages": ["Ruby"],
+					"tools": ["RoR"]
+				},
+				{
+					"id": 7,
+					"company": "Shortly",
+					"logo": "./images/shortly.svg",
+					"new": false,
+					"featured": false,
+					"position": "Junior Developer",
+					"role": "Frontend",
+					"level": "Junior",
+					"postedAt": "2w ago",
+					"contract": "Full Time",
+					"location": "Worldwide",
+					"languages": ["HTML", "JavaScript"],
+					"tools": ["Sass"]
+				},
+				{
+					"id": 8,
+					"company": "Insure",
+					"logo": "./images/insure.svg",
+					"new": false,
+					"featured": false,
+					"position": "Junior Frontend Developer",
+					"role": "Frontend",
+					"level": "Junior",
+					"postedAt": "2w ago",
+					"contract": "Full Time",
+					"location": "USA Only",
+					"languages": ["JavaScript"],
+					"tools": ["Vue", "Sass"]
+				},
+				{
+					"id": 9,
+					"company": "Eyecam Co.",
+					"logo": "./images/eyecam-co.svg",
+					"new": false,
+					"featured": false,
+					"position": "Full Stack Engineer",
+					"role": "Fullstack",
+					"level": "Midweight",
+					"postedAt": "3w ago",
+					"contract": "Full Time",
+					"location": "Worldwide",
+					"languages": ["JavaScript", "Python"],
+					"tools": ["Django"]
+				},
+				{
+					"id": 10,
+					"company": "The Air Filter Company",
+					"logo": "./images/the-air-filter-company.svg",
+					"new": false,
+					"featured": false,
+					"position": "Front-end Dev",
+					"role": "Frontend",
+					"level": "Junior",
+					"postedAt": "1mo ago",
+					"contract": "Part Time",
+					"location": "Worldwide",
+					"languages": ["JavaScript"],
+					"tools": ["React", "Sass"]
+				}
+			];
+			
+			data.forEach(job=>{
+				console.log(job);
+				//Content Listing Row is the main row part
+				var content_listing_row = document.createElement("div");
+				content_listing_row.classList.add("content-listing-row");
+
+				// ----------------------------------------------------------------
+				// ----------------------------------------------------------------
+
+				// For logo part
+				var content_listing_row_logo = document.createElement("div");
+				content_listing_row_logo.classList.add("content-listing-row-logo");
+				var logo = document.createElement("img");
+				logo.src = job.logo;
+
+				// Appending logo to the div
+				content_listing_row_logo.append(logo);
+				content_listing_row.append(content_listing_row_logo);
+
+				// -----------------------------------------------------------------
+				// -----------------------------------------------------------------
+
+				//For Details part
+				var content_listing_row_details = document.createElement("div");
+				content_listing_row_details.classList.add("content-listiing-row-details");
+				//*****************************************************
+				//For part 1
+				var part1 = document.createElement("div");
+				part1.classList.add("content-listiing-row-details-part");
+				var part1_h5 = document.createElement("h5");
+				part1_h5.textContent=job.company;
+				part1.append(part1_h5);
+				if(job.new){
+					var newTag =document.createElement("div");
+					newTag.classList.add("new-tag");
+					newTag.innerText= "NEW!";
+					part1.append(newTag);
+				}
+				if(job.featured){
+					var newTag =document.createElement("div");
+					newTag.classList.add("feature-tag");
+					newTag.innerText= "FEATURED";
+					part1.append(newTag);
+				}
+				
+				content_listing_row_details.append(part1);
+				//******************************************************
+				//For part 2 
+				var part2 = document.createElement("div");
+				part2.classList.add("content-listiing-row-details-part");
+				var part2_h3 = document.createElement("h3");
+				part2_h3.textContent= job.position;
+				
+				part2.append(part2_h3);
+				content_listing_row_details.append(part2);
+				//******************************************************
+				//For part 3 
+				var part3 = document.createElement("div");
+				part3.classList.add("content-listiing-row-details-part");
+				let label = [];
+				for(let i =0; i<5;i++){
+					label[i] = document.createElement("label");
+					label[i].textContent=".";
+					part3.append(label[i]);
+				}
+				label[0].textContent=job.postedAt;
+				label[2].textContent=job.contract;
+				label[4].textContent=job.location;
+				content_listing_row_details.append(part3);
+				//******************************************************
+				content_listing_row.append(content_listing_row_details);
+
+				// -----------------------------------------------------------------
+				// -----------------------------------------------------------------
+
+				//For Tags
+				var content_list_row_tags = document.createElement("div");
+				content_list_row_tags.classList.add("content-list-row-tags");
+				var tags = [];
+				var tagItems = job.languages.concat(job.tools);
+				console.log(tagItems);
+				for(let i=0;i<tagItems.length;i++){
+					tags[i] = document.createElement("div");
+					tags[i].classList.add("content-list-row-tags-tag");
+					tags[i].innerText = tagItems[i];
+					content_list_row_tags.append(tags[i]);
+				}
+				content_listing_row.append(content_list_row_tags);
+
+				//For Final Adding to the content listing
+				$(".content-listing").append(content_listing_row);
+
+			});
+
+			alert("You can visit url/filter.html to check the filter page");
+		</script>
+	</footer>
+</html>
